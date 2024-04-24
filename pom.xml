@@ -41,9 +41,9 @@
                 <version>2.11</version>
                 <configuration>
                     <skip>true</skip>
-	    	    <!--<argLine>
+	    	    <!-- <argLine>
                         --illegal-access=permit
-                    </argLine>-->
+                    </argLine> -->
 	        </configuration>
                 <executions>
                     <execution>
