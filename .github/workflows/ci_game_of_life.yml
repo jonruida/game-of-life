@@ -5,16 +5,23 @@ on: push
 jobs:
   game-of-life-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17',  '21']
+
     steps:
-      - name: Set up JDK 18
-        uses: actions/setup-java@v2
-        with:
-          java-version: '18'
-          distribution: 'adopt'
-      - name: Check Java version
+      - name: Java version
         run: java -version
+      - name: Maven version
+        run: mvn --version
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Maven test
         run: mvn test
-
+      - uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.8.2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
