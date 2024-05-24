@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.7.2
+          maven-version: 3.9.6
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -21,4 +21,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Maven test
         run: mvn test
+
 
