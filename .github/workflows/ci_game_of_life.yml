@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.6
+          maven-version: 3.7.2
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
