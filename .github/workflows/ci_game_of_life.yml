@@ -10,6 +10,14 @@ jobs:
         java: [ '17',  '21']
 
     steps:
+      - uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.8.2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+
       - name: Java version
         run: java -version
       - name: Maven version
@@ -18,10 +26,3 @@ jobs:
         uses: actions/checkout@v4
       - name: Maven test
         run: mvn test
-      - uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.8.2
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: ${{ matrix.java }}
